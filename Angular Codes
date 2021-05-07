@@ -1,0 +1,112 @@
+Installations:
+==========================
+1.Node Version Manager - https://github.com/coreybutler/nvm-windows
+2.Node Js Install - https://nodejs.org/en/download/
+(npm gets installed with Node Js)
+3.Angular-npm install -g @angular/cli@7.3.9
+===========================
+NVM COMMANDS:
+=========================
+--nvm install
+>>used to install new version
+--nvm ls_available/ls/list 
+>>used to see full list of available versions
+--nvm use <version>
+>>to switch between the versions 
+--nvm node/lts
+>>latest version
+--nvm alias <name><version>
+>>to give a name for the downloaded versions
+--nvm unalias <name><version>
+>>to delete the name for the download versions
+--nvm current 
+>>to see the current version running 
+--nvm run <version>
+>>to run the specific function
+--nvm exec <version>
+>>to run the node version
+-nvm which 
+>>useful when configuring a text editor plugin that needs to know where your current version of Node lives.
+================================
+1.To create a New Angular Project - ng New Project_name
+2.To Run an Angular Project - ng serve
+3.To Enable Routing to an Angular Project - ng new routing-app --routing
+4.To Build an Angular App- ng Build --prod
+5.To Serve In specific Port - ng serve --port 3000
+================================
+node-sass issue fix
+===================
+npm install sass-loader node-sass webpack --save-dev
+
+npm uninstall --save-dev sass-loader
+npm install --save-dev sass-loader@7.1.0
+
+node-sass loader error
+======================
+npm rebuild node-sass
+
+-------------------------------------------------------------------------------------------------------------------------------
+Routing in Angular:
+================================
+
+To Create a New Component : ng generate Component name
+
+1.create a module.ts file for the created component
+
+>>>module.ts(newone)
+imports statements
+---
+const routes:Routes=[
+	{
+		path:'path',component:componentname
+	}
+];
+--ngmodule
+
+>>>appcomponent.ts
+ constructor( private cRouter:Router){}
+
+  func()
+  {
+    this.cRouter.navigate(['path'])
+  }
+  ===================================
+-------------------------------------------------------------------------------------------------------------------------------
+SessionStorage
+========================================================
+//to get the Value from one component 
+public SaveVariable(pValue:any){
+sessionStorage.setItem("Key",pValue)
+}
+//to use the value in another component 
+public GetVariable()
+{
+sessionStorage.getItem("key")
+}
+------------------------------------------------------------------------------------------------------------------------------------
+EventEmitter
+================================================================
+@output NameforEventEmitter = new EventEmitter();
+
+
+getthevalueandemit(data)
+{
+this.NameforEventEmitter.emit(data)
+}
+subscridEventEmitter()
+{
+return this.NameforEventEmitter
+}
+
+while using...
+subscridEventEmitter().Subscribe(data=>
+{
+method()
+});
+----------------------------------------------------------------------------------------------------------------------------------------------
+View Child
+==================================================================
+--To Get the Property from the Html Dom 
+@ViewChild('getHeight') getHeight: ElementRef;
+  result: string;
+this.height = this.getHeight.nativeElement.offsetHeight;
