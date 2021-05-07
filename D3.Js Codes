@@ -1,0 +1,165 @@
+D3.js Codes for Angular TypeScript
+=======================================
+D3 codes
+>>>>>>>>>>>>>>>>>>>
+Installations:
+d3-npm install --save @types/d3
+transition-npm install d3 transition
+
+1.To create an svg :
+	var svg = d3.select("body")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+-------------------------------------------------------------------------------------------------------------------------------	
+2.To Append Group to an Svg:
+	 var Group = svg.append("g").attr()
+-------------------------------------------------------------------------------------------------------------------------------	
+3.To Append circle:
+  svg.append('circle')
+  .attr('cx', 100)
+  .attr('cy', 100)
+  .attr('r', 50)
+  .attr('stroke', 'black')
+  .attr('fill', '#69a3b2');
+-------------------------------------------------------------------------------------------------------------------------------
+4.To Append Rectangle:
+  svg.append('rect')
+  .attr('x', 10)
+  .attr('y', 120)
+  .attr('width', 600)
+  .attr('height', 40)
+  .attr('stroke', 'black')
+  .attr('fill', '#69a3b2');
+--------------------------------------------------------------------------------------------------------------------------------
+5. To Append Line:
+  svg.append('line')
+  .attr('x1', 10)
+  .attr('y1', 10)
+  .attr('x2', 700)
+  .attr('y2', 100)
+  .attr('stroke', 'red');
+--------------------------------------------------------------------------------------------------------------------------------
+6. To Append Text:
+  svg.append('text')
+  .attr('x', 100)
+  .attr('y', 50)
+  .attr('stroke', 'green')
+  .style("font-size", 19)
+  .text("I'm another piece of text");
+--------------------------------------------------------------------------------------------------------------------------------
+7. To Append Path:  
+  svgname.append("path")
+   .datum(data)
+   .attr("fill", "none")
+   .attr("stroke", "black")
+   .attr("stroke-width", 1.5)
+   .attr("d", d3.line()
+   .x(function(d:any){return Number(x(d.xvalue))})
+   .y(function(d:any){return y(d.yvalue)}))
+ ------------------------------------------------------------------------------------------------------------------------------
+ 8.Selecting an Svg Name :
+ d3.Select("circle").attr()
+ d3.Select("ID").attr()
+ 
+ d3.SelectAll("circle").attr()
+ d3.SelectAll("ID").attr()
+ -------------------------------------------------------------------------------------------------------------------------------
+ 9.Binding Data to an Svg Element:
+ d3.Select("circle").text("Hi");
+ -------------------------------------------------------------------------------------------------------------------------------
+ 10.Transition
+ d3.select('circle').transition().duration().delay().attr()
+ -------------------------------------------------------------------------------------------------------------------------------
+ 11.Events 
+ d3.select('circle').on('click',function(){return d3.select('circle').attr('fill','red')}
+ d3.select('circle').on('mouseover',function(){return d3.select('circle').attr('fill','red')}
+ d3.select('circle').on('moueout',function(){return d3.select('circle').attr('fill','red')}
+ -------------------------------------------------------------------------------------------------------------------------------
+ 12.To End Transition:
+ d3.select('circle').transition.interupt()
+ -------------------------------------------------------------------------------------------------------------------------------
+ 13.To Remove an Svg Element:
+ d3.select('circle').remove()
+-------------------------------------------------------------------------------------------------------------------------------
+ 14.Axis(Scale Linear):
+ var svg = d3.select("#res")
+  .append("svg")
+  .attr("width", 1000)
+// Create the scale
+var x = d3.scaleLinear()
+    .domain([0, 100])         // This is what is written on the Axis: from 0 to 100
+    .range([100, 800]);       // This is where the axis is placed: from 100px to 800px
+// Draw the axis
+svg
+  .append("g")
+  .attr("transform", "translate(0,50)")      // This controls the vertical position of the Axis
+  .call(d3.axisBottom(x));
+  
+_______________________________________________________________________________________________________________________________
+ ScalePoint:
+ 
+ var svg = d3.select("#ordinal_demo")
+  .append("svg")
+  .attr("width", 1000)
+  .attr("height", 200)
+
+// Create the scale
+var x = d3.scalePoint()
+    .domain(["A", "B", "C", "D", "E"])         // This is what is written on the Axis: from 0 to 100
+    .range([100, 800]);       // This is where the axis is placed: from 100 px to 800px
+
+// Draw the axis
+svg
+  .append("g")
+  .attr("transform", "translate(0,150)")      // This controls the vertical position of the Axis
+  .call(d3.axisBottom(x));
+
+______________________________________________________________________________________________________________________________
+Scale Band:
+
+  var svg = d3.select("#band_demo")
+  .append("svg")
+    .attr("width", 1000)
+    .attr("height", 300)
+
+// Create the scale
+var x = d3.scaleBand()
+    .domain(["A", "B", "C", "D", "E"])       // This is what is written on the Axis: from 0 to 100
+    .range([100, 800])                       // This is where the axis is placed: from 100 px to 800px
+    .padding([0.8])                          // Goes between 0 and 1. Default is 0
+
+// Draw the axis
+svg
+  .append("g")
+  .attr("transform", "translate(0,250)")      // This controls the vertical position of the Axis
+  .call(d3.axisBottom(x));  
+  
+  AxisBottom/AxisLeft/AxisTop/AxisRight
+-------------------------------------------------------------------------------------------------------------------------------
+15.D3 Triangle
+
+  var triangleSize = 110;
+  var triangle = d3.symbol()
+        .type(d3.symbolTriangle)
+        .size(triangleSize)    
+  group.append("path")
+  .attr("d", triangle)
+  .attr("stroke", fill)
+  .attr("fill", fill)
+  .attr("transform","translate("+x+","+y+")rotate("+-r+")")
+--------------------------------------------------------------------------------------------------------------------------------
+16.Repeated Transition:
+repeat();
+  function repeat() {
+  sel
+  .transition()
+  .delay(2000)
+  .text(p2)
+  .transition()
+  .delay(2000)
+  .text(p1)
+  .on('end', repeat)
+  }
+-------------------------------------------------------------------------------------------------------------------------------
+ 
